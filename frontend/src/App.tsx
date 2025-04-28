@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { ChatButton } from './components/ChatButton'
 import { ChatWindow } from './components/ChatWindow'
+import { ProductList } from './components/ProductList'
+import { Header } from './components/Header'
 import './App.css'
 
 function App() {
@@ -31,7 +33,6 @@ function App() {
     setIsLoading(true)
     setMessages(prev => [...prev, { type: 'loading', text: '' }])
 
-
     // TODO: Modify below to call the backend API and set the answer
     const randomAnswer = answers[Math.floor(Math.random() * answers.length)]
     setMessages(prev => prev.filter(msg => msg.type !== 'loading').concat({ type: 'answer', text: randomAnswer }))
@@ -40,6 +41,8 @@ function App() {
 
   return (
     <div className="app-container">
+      <Header />
+      <ProductList />
       <ChatButton 
         onClick={() => setIsChatOpen(true)}
         isVisible={!isChatOpen}
