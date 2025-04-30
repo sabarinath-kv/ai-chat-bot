@@ -14,36 +14,47 @@ export class EventsController {
   private jsonData = [
     {
       id: 1,
-      image: 'src/assets/laptop.jpeg',
       name: 'Laptop',
-      price: '₹55,000',
+      price: 1299.99,
+      image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500',
+      description: 'Powerful laptop for work and entertainment with long battery life.',
     },
     {
       id: 2,
-      image: 'src/assets/stand.jpg',
-      name: 'Laptop Stand',
-      price: '₹1,200',
+      name: '"Wireless Headphones"',
+      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500',
+      price: 199.99,
+      description: 'Premium wireless headphones with noise cancellation and exceptional sound quality.',
     },
-    { id: 3, image: 'src/assets/bag.jpeg', name: 'Bag', price: '₹1,800' },
+    { 
+      id: 3,
+      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500',
+      name: 'Smart Watch',
+      price: 299.99,
+      description: 'Feature-rich smartwatch with health tracking and notifications.',
+    },
     {
       id: 4,
-      image: 'src/assets/mouse.jpeg',
-      name: 'Wireless Mouse',
-      price: '₹999',
+      image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500',
+      name: 'Smartphone',
+      price: 799.99,
+      description: 'Latest smartphone with advanced camera system and 5G capability.',
     },
     {
       id: 5,
-      image: 'src/assets/keyboard.jpg',
-      name: 'Keyboard',
-      price: '₹2,500',
+      image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500',
+      name: 'Tablet',
+      price: 499.99,
+      description: 'Versatile tablet perfect for creativity and productivity.',
     },
   ];
 
   private detailsData = {
-    image: 'src/assets/laptop-video.mp4',
     id: 1,
     name: 'Laptop',
-    price: '₹50,000',
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500',
+    price: 1299.99,
+    description: 'Powerful laptop for work and entertainment with long battery life.',
   };
 
   private markdownClient: Response | null = null;
