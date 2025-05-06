@@ -11,6 +11,7 @@ function App() {
   const [messages, setMessages] = useState<{type: 'question' | 'answer' | 'loading', text: string}[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
+  
   const answers = [
     "Thanks for your question! I'll help you with that.",
     "That's an interesting question. Let me explain...", 
