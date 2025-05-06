@@ -1,12 +1,11 @@
-import React, { useEffect, useRef } from "react";
-import { ChatMessage } from "./ChatMessage";
-import { ChatInput } from "./ChatInput";
-import { LoadingMessage } from "./LoadingMessage";
-import { MarkdownChatMessage } from "./chat-components/MarkdownChatMessage";
-import "./styles.css";
+import React, { useEffect, useRef } from 'react';
+import { ChatMessage } from './ChatMessage';
+import { ChatInput } from './ChatInput';
+import { LoadingMessage } from './LoadingMessage';
+import './styles.css';
 
 interface Message {
-  type: "question" | "answer" | "loading";
+  type: 'question' | 'answer' | 'loading';
   text: string;
 }
 
@@ -23,12 +22,12 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
   onClose,
   question,
   onQuestionChange,
-  onSubmit,
+  onSubmit
 }) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -39,21 +38,22 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
     <div className="chat-window">
       <div className="chat-window-header">
         <h3 className="chat-window-title">Chat Support</h3>
-        <button onClick={onClose} className="chat-window-close">
+        <button 
+          onClick={onClose}
+          className="chat-window-close"
+        >
           ✕
         </button>
       </div>
 
       <div className="chat-messages">
-        {messages.map((msg, index) =>
-          msg.type === "loading" ? (
+        {messages.map((msg, index) => (
+          msg.type === 'loading' ? (
             <LoadingMessage key={index} />
-          ) : msg.type === "answer" ? (
-            <MarkdownChatMessage key={index} type={msg.type} text={msg.text} />
           ) : (
             <ChatMessage key={index} type={msg.type} text={msg.text} />
           )
-        )}
+        ))}
         <div ref={messagesEndRef} /> {/* Invisible element to scroll to */}
       </div>
 
@@ -64,4 +64,4 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
       />
     </div>
   );
-};
+}; 
