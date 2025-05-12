@@ -2,17 +2,7 @@ import React from 'react';
 import "./ChatProductCard.css";
 
 interface ProductCardProps {
-  data: {
-    title: string;
-    price: number;
-    image: string;
-    description: string;
-  } | {
-    title: string;
-    price: number;
-    image: string;
-    description: string;
-  }[];
+  data: unknown;
 }
 
 export const ChatProductCard: React.FC<ProductCardProps> = ({ data }) => {
@@ -33,5 +23,5 @@ export const ChatProductCard: React.FC<ProductCardProps> = ({ data }) => {
     return <div className="chat-product-grid">{data.map(renderCard)}</div>;
   }
 
-  return renderCard(data, 0);
+  return renderCard(data as { title: string; price: number; image: string; description: string }, 0);
 };

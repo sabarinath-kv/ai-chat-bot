@@ -1,8 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { EventsService } from './events.service';
-import { CreateEventDto } from './dto/create-event.dto';
-import { UpdateEventDto } from './dto/update-event.dto';
 
 @Controller('events')
 export class EventsController {
@@ -73,10 +71,10 @@ export class EventsController {
       this.streamMarkdown();
     } else if (content.toLowerCase().includes('details')) {
       this.jsonClient = res;
-      this.streamJson(this.detailsData, true);
+      this.streamJson(this.detailsData);
     } else {
       this.jsonClient = res;
-      this.streamJson(this.jsonData, false);
+      this.streamJson(this.jsonData);
     }
   }
 
@@ -101,7 +99,7 @@ export class EventsController {
     }, 500);
   }
 
-  private streamJson(data: any, isJsonVideo: boolean) {
+  private streamJson(data: any) {
     if (!this.jsonClient) return;
 
     const jsonString = JSON.stringify(data);
@@ -118,7 +116,7 @@ export class EventsController {
       index += chunkSize;
 
       this.jsonClient?.write(
-        `data: ${JSON.stringify({ type: isJsonVideo ? 'video_json_token' : 'json_token', content: chunk })}\n\n`,
+        `data: ${JSON.stringify({ type: 'json_token', content: chunk })}\n\n`,
       );
     }, 500);
   }
