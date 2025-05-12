@@ -1,13 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
-import { LoadingMessage } from './LoadingMessage';
 import './styles.css';
-
-interface Message {
-  type: 'question' | 'answer' | 'loading';
-  text: string;
-}
+import { Message } from '../types/types';
 
 interface ChatWindowProps {
   messages: Message[];
@@ -48,11 +43,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
 
       <div className="chat-messages">
         {messages.map((msg, index) => (
-          msg.type === 'loading' ? (
-            <LoadingMessage key={index} />
-          ) : (
-            <ChatMessage key={index} type={msg.type} text={msg.text} />
-          )
+            <ChatMessage key={index} type={msg.type} text={msg.text} contentType={msg.contentType} />
         ))}
         <div ref={messagesEndRef} /> {/* Invisible element to scroll to */}
       </div>
