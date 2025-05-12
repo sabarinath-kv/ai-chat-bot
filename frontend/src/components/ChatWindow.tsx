@@ -43,7 +43,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
 
       <div className="chat-messages">
         {messages.map((msg, index) => (
-            <ChatMessage key={index} type={msg.type} text={msg.text} contentType={msg.contentType} />
+            <ChatMessage key={index} message={msg} />
         ))}
         <div ref={messagesEndRef} /> {/* Invisible element to scroll to */}
       </div>

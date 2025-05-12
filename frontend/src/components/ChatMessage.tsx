@@ -1,17 +1,15 @@
 import React from 'react';
 import './styles.css';
-import { TokenType } from '../types/types';
+import { Message } from '../types/types';
 
 interface ChatMessageProps {
-  type: 'question' | 'answer';
-  text: string;
-  contentType?: TokenType;
+  message: Message;
 }
 
-export const ChatMessage: React.FC<ChatMessageProps> = ({ type, text }) => {
+export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   return (
-    <div className={`chat-message ${type}`}>
-      {text}
+    <div className={`chat-message ${message.type}`}>
+      {message.content}
     </div>
   );
 }; 
