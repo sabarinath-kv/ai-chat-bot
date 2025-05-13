@@ -28,12 +28,12 @@ function App() {
     setQuestion('')
     
     // Add user question
-    setMessages(prev => [...prev, { type: 'question', text: prompt }])
+    setMessages(prev => [...prev, { type: 'question', content: prompt }])
     
 
     // TODO: Modify below to call the backend API and set the answer
     const randomAnswer = answers[Math.floor(Math.random() * answers.length)]
-    setMessages(prev => prev.concat({ type: 'answer', text: randomAnswer, contentType: 'markdown_token' }))
+    setMessages(prev => prev.concat({ type: 'answer', content: randomAnswer, contentType: 'markdown_token' }))
   }
 
   return (
